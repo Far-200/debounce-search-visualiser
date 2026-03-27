@@ -1,5 +1,9 @@
 # Debounce Search Visualizer
 
+## Preview
+
+![App Preview](./screenshots/preview.png)
+
 A small React project that demonstrates how **debouncing** works in search inputs.
 
 This app helps visualize the difference between:
@@ -9,7 +13,7 @@ This app helps visualize the difference between:
 - the search request timing
 - the number of requests sent
 
-It is designed as a beginner- friendly project to learn a core frontend optimization concept used in real- world applications.
+It is designed as a beginner-friendly project to learn a core frontend optimization concept used in real-world applications.
 
 ---
 
@@ -88,8 +92,8 @@ debounce-search-visualiser/
 
 The app uses two separate pieces of state:
 
-- query → what the user is typing right now
-- debouncedQuery → updates only after a delay
+- `query` → what the user is typing right now
+- `debouncedQuery` → updates only after a delay
 
 ---
 
@@ -151,6 +155,20 @@ With debounce:
 
 ---
 
+## Debounce vs Throttle
+
+| Concept  | Behavior                                 |
+| -------- | ---------------------------------------- |
+| Debounce | Waits until user stops triggering events |
+| Throttle | Limits execution to once per interval    |
+
+### Example
+
+- Debounce → Search input
+- Throttle → Scroll events
+
+---
+
 ## Example
 
 If debounce delay is 500ms:
@@ -162,7 +180,8 @@ If debounce delay is reduced to 200ms:
 
 - app feels faster
 - but sends more requests
-  This project helps visualize that tradeoff.
+
+This project helps visualize that tradeoff.
 
 ---
 
@@ -200,7 +219,7 @@ This project is intentionally small, but it teaches an important real-world conc
 
 - What is debounce?
 - How is debounce different from throttle?
-- Why do we clear timers in useEffect cleanup?
+- Why do we clear timers in `useEffect` cleanup?
 
 ---
 
