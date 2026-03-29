@@ -3,7 +3,7 @@
 ## Preview
 
 ![App Preview](./screenshots/preview.png)
-![Search Preview](./screenshots/preview_2.pmg)
+![Search Preview](./screenshots/preview_2.png)
 
 A small React project that demonstrates how **debouncing** works in search inputs.
 
