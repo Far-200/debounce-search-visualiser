@@ -130,12 +130,12 @@ useEffect(() => {
 
   const timer = setTimeout(() => {
     setDebouncedQuery(query);
-  }, DEBOUNCE_DELAY);
+  }, delay);
 
   return () => {
     clearTimeout(timer);
   };
-}, [query]);
+}, [query, delay]);
 ```
 
 The cleanup function is what makes debouncing work properly.
