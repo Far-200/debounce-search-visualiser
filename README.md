@@ -238,7 +238,7 @@ This project is intentionally small, but it teaches an important real-world conc
 - Extract debounce logic into a reusable useDebounce() hook
 - Add a real API instead of fake local data
 - Add loading spinner animation
-- Add debounce delay controls
+- Save selected debounce delay in localStorage
 - Compare debounce vs throttle visually
 - Add search history
 - Add keyboard shortcuts
