@@ -53,16 +53,20 @@ With **debouncing**, the app waits for a short delay after the user stops typing
 ## Features
 
 - Search input with debounce behavior
+- Adjustable debounce delay slider
+- Live display of current debounce delay in milliseconds
 - Separate display for live input and debounced input
 - Request counter to visualize API calls
 - Search status messages:
   - `Idle`
   - `Typing...`
   - `Waiting for debounce...`
-  - `Searching...`
-  - `Results ready`
+  - `Contacting Elon Musk...`
+  - `Elon Replied!`
 - Fake search API with delay simulation
 - Responsive dark UI
+- Result count display
+- Scrollable results area for longer result lists
 
 ---
 
@@ -172,7 +176,7 @@ With debounce:
 
 ## Example
 
-If debounce delay is 500ms:
+If debounce delay is set to 500ms:
 
 - User types quickly → timer keeps resetting
 - User pauses for 500ms → search runs once
@@ -182,7 +186,12 @@ If debounce delay is reduced to 200ms:
 - app feels faster
 - but sends more requests
 
-This project helps visualize that tradeoff.
+If debounce delay is increased live using the slider:
+
+- requests wait longer before firing
+- users can directly observe how debounce timing affects behavior
+
+This project helps visualize that tradeoff interactively.
 
 ---
 
@@ -236,13 +245,13 @@ This project is intentionally small, but it teaches an important real-world conc
 
 ---
 
-## Future Version Idea
+## Current Interactive Upgrade
 
-A next version of this project could allow users to:
+This version also allows users to:
 
-- change debounce delay live
-- compare request counts for 200ms vs 500ms vs 1000ms
-- plug into a real search API
+- change debounce delay live using a slider
+- observe how delay affects request timing
+- better understand the tradeoff between responsiveness and request frequency
 
 ---
 
