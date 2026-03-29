@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 
-const DEBOUNCE_DELAY = 200;
-
 const DATA = [
   "React",
   "Redux",
@@ -65,6 +63,7 @@ export default function App() {
   const [results, setResults] = useState([]);
   const [status, setStatus] = useState("Idle");
   const [requestCount, setRequestCount] = useState(0);
+  const [delay, setDelay] = useState(200);
 
   useEffect(() => {
     if (!query.trim()) {
@@ -78,12 +77,12 @@ export default function App() {
 
     const timer = setTimeout(() => {
       setDebouncedQuery(query);
-    }, DEBOUNCE_DELAY);
+    }, delay);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [query]);
+  }, [query, delay]);
 
   useEffect(() => {
     if (!debouncedQuery.trim()) return;
@@ -91,14 +90,14 @@ export default function App() {
     let isCancelled = false;
 
     async function runSearch() {
-      setStatus("Searching...");
+      setStatus("Contacting Elon Musk...");
       setRequestCount((prev) => prev + 1);
 
       const data = await fakeSearchApi(debouncedQuery);
 
       if (!isCancelled) {
         setResults(data);
-        setStatus("Results ready");
+        setStatus("Elon Replied!");
       }
     }
 
@@ -134,7 +133,19 @@ export default function App() {
             }}
           />
         </div>
-
+        <div className="delay-control">
+          <label>
+            Debounce Delay: <strong>{delay}ms</strong>
+          </label>
+          <input
+            type="range"
+            min="0"
+            max="1000"
+            step="50"
+            value={delay}
+            onChange={(e) => setDelay(Number(e.target.value))}
+          />
+        </div>
         <div className="status-grid">
           <div className="status-box">
             <span className="label">Live Input</span>
@@ -162,14 +173,17 @@ export default function App() {
             <strong>Typing State:</strong> {typingIndicator}
           </p>
           <p>
-            <strong>How it works:</strong> Every new keystroke resets a{" "}
-            {DEBOUNCE_DELAY}ms timer. Only when the timer finishes do we send
-            the search request.
+            <strong>How it works:</strong> Every new keystroke resets a {delay}
+            ms timer. Only when the timer finishes do we send the search
+            request.
           </p>
         </div>
 
         <div className="results">
           <h2>Results</h2>
+          <p className="results-count">
+            {results.length} result{results.length !== 1 ? "s" : ""}
+          </p>
           {!query.trim() ? (
             <p className="empty">Nothing yet. Feed me letters.</p>
           ) : results.length > 0 ? (
@@ -178,11 +192,11 @@ export default function App() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-          ) : status === "Searching..." ||
+          ) : status === "Contacting Elon Musk..." ||
             status === "Waiting for debounce..." ? (
             <p className="empty">Searching soon...</p>
           ) : (
-            <p className="empty">F**k, no results. Update DATA, maybe?</p>
+            <p className="empty">Damn, no results. Update DATA, maybe?</p>
           )}
         </div>
       </div>
