@@ -240,7 +240,7 @@ This project is intentionally small, but it teaches an important real-world conc
 - Add loading spinner animation
 - Save selected debounce delay in localStorage
 - Compare debounce vs throttle visually
-- Add search history (next focus)
+- Add search history
 - Add keyboard shortcuts
 
 ---
