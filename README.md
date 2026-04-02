@@ -257,6 +257,6 @@ This version also allows users to:
 
 ## License
 
-This project is built for learning and portfolio purposes🫠.
+This project is built for learning and portfolio purposes.
 
 ---
